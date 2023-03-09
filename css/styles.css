@@ -135,7 +135,14 @@ img {
 .header-link:focus {
   color: var(--accent-color);
 }
-
+.header-link:is(:hover, :focus)::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #404bbf;
+  border-radius: 2px;
+}
 .header-address {
 }
 .header-address-list {
