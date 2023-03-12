@@ -530,8 +530,8 @@ img {
 .portfolio-link {
 }
 .potfolio-link-image {
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 .portfolio-card {
   padding: 32px 0 32px 16px;
@@ -553,7 +553,8 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
-  background-color: rgba(77, 90, 229, 0.8);
+  background-color: #4d5ae5;
+  opacity: 0;
   background-blend-mode: soft-light;
   mix-blend-mode: normal;
   padding: 40px 32px;
@@ -562,14 +563,15 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  transform: translateY(100%);
+  transform: translateY(300px);
   overflow: auto;
-  transition-property: transform;
+  transition-property: transform opacity;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .potfolio-link-image:is(:hover, :focus) .portfolio-press {
   transform: translateY(0);
+  opacity: 1;
 }
 
 /* -------------MODAL---------------- */
