@@ -6,6 +6,7 @@
   --background-dark: #2e2f42;
   --background-light: #f4f4fd;
   --main-border-btn: #e7e9fc;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 h1,
 h2,
@@ -134,7 +135,7 @@ img {
   position: relative;
   transition-property: color;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--timing-function);
 }
 
 .header-link:hover,
@@ -172,7 +173,7 @@ img {
   color: var(--main-text);
   transition-property: color;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--timing-function);
 }
 .header-mail:hover,
 .header-mail:focus {
@@ -187,7 +188,7 @@ img {
   color: var(--main-text);
   transition-property: color;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--timing-function);
 }
 .header-tel:hover,
 .header-tel:focus {
@@ -227,7 +228,7 @@ img {
   padding: 16px 32px;
   transition-property: background-color;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--timing-function);
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -353,7 +354,7 @@ img {
   color: #f4f4fd;
   transition-property: background-color;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--timing-function);
 }
 .team-social-link:is(:hover, :focus) {
   background-color: var(--accent-color);
@@ -393,7 +394,7 @@ img {
   color: #afb1b8;
   transition-property: border color;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--timing-function);
 }
 .customers-icon-link:is(:hover, :focus) {
   border: 1px solid var(--accent-color);
@@ -469,7 +470,7 @@ img {
   color: #f4f4fd;
   transition-property: background-color;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--timing-function);
 }
 .footer-social-link:is(:hover, :focus) {
   background-color: #31d0aa;
@@ -500,7 +501,7 @@ img {
   border-radius: 4px;
   transition-property: color background-color border box-shadow;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--timing-function);
 }
 .portfolio-btn:hover,
 .portfolio-btn:focus {
@@ -521,7 +522,7 @@ img {
   flex-basis: calc((100% - 48px) / 3);
   transition-property: box-shadow;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--timing-function);
 }
 .portfolio-item:is(:hover, :focus) {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
@@ -529,9 +530,47 @@ img {
 }
 .portfolio-link {
 }
-.potfolio-link-image {
-  overflow: hidden;
+.portfolio-link:is(:hover, :focus) .portfolio-press {
+  opacity: 1;
+}
+.portfolio-link:is(:hover, :focus) .potfolio-thumb::before {
+  opacity: 1;
+}
+.potfolio-thumb {
   position: relative;
+  /* overflow: hidden; */
+}
+.potfolio-thumb::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  position: absolute;
+  opacity: 0;
+}
+/* .potfolio-thumb:hover::before {
+  opacity: 1;
+} */
+
+.portfolio-press {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding: 40px 32px;
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  /* transform: translateY(100%);
+  transition-property: transform opacity;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function); */
+}
+.potfolio-thumb:is(:hover, :focus) .portfolio-press {
+  transform: translateY(0);
+  opacity: 1;
 }
 .portfolio-card {
   padding: 32px 0 32px 16px;
@@ -548,37 +587,13 @@ img {
   letter-spacing: 0.02em;
   color: var(--main-text);
 }
-.portfolio-press {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #f4f4fd;
-  background-color: #4d5ae5;
-  opacity: 0;
-  background-blend-mode: soft-light;
-  mix-blend-mode: normal;
-  padding: 40px 32px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(300px);
-  overflow: auto;
-  transition-property: transform opacity;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.potfolio-link-image:is(:hover, :focus) .portfolio-press {
-  transform: translateY(0);
-  opacity: 1;
-}
 
 /* -------------MODAL---------------- */
 .backdrop {
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
+  position: fixed;
 }
 .modal {
 }
