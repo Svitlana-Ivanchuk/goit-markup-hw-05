@@ -635,6 +635,9 @@ img {
   transition-property: color background-color border;
   transition-duration: 250ms;
   transition-timing-function: var(--timing-function);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-close:is(:hover, :focus) {
@@ -643,11 +646,6 @@ img {
   color: #ffffff;
 }
 
-.modal-close-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .modal-close-icon {
   fill: currentColor;
 }
